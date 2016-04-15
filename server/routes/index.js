@@ -25,7 +25,8 @@ router.post('/add', function(request, response, next){
     description:request.body.description,
     assignee:request.body.assignee,
     reporter:request.body.reporter,
-    dateCreated:new Date()});
+    dateCreated:new Date(),
+    dateUpdated:new Date()});
     ticketRequest.save(function(err){
        if(err) console.log('error', err);
        response.send(ticketRequest.toJSON());
@@ -54,5 +55,6 @@ priority:String,
 description:String,
 assignee:String,
 reporter:String,
-dateCreated:Date});
+dateCreated:Date,
+dateUpdated:Date});
 module.exports = router;
