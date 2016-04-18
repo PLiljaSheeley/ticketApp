@@ -19,9 +19,7 @@ app.controller("MainController", ["$scope", "$http", function($scope, $http) {
   $scope.change = function(ticket){
     $scope.count++;
     if($scope.count%2===0){
-    $http.post('/add', ticket);
-  }else if($scope.count%2 !== 0){
-    $http.delete("/deleteTicket/" + ticket._id);
+    $http.put('/change/' + ticket._id, ticket);
   }
   }
   $scope.deleteTicket = function(ticket) {
