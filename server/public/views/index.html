@@ -30,12 +30,19 @@
         <div ng-model = "ticketObject" ng-repeat="ticket in ticketArray">
         <div class = "col-sm-4">
         <div class = "well">
-        Name: {{ ticket.name }}<br />
-        Type: {{ ticket.type }}<br />
-        Priority: {{ ticket.priority }}<br />
-        Description: {{ ticket.description }}<br />
-        Assingee: {{ ticket.assignee }}<br />
-        Reporter: {{ ticket.reporter }}<br />
+        Name: {{ ticket.name }}<br /><div ng-show="edit"><input type="text" ng-model="ticket.name" /></div>
+
+        Type: {{ ticket.type }}<br /><div ng-show="edit"><input type="text" ng-model="ticket.type" /></div>
+
+        Priority: {{ ticket.priority }}<br /><div ng-show="edit"><input type="text" ng-model="ticket.priority" /></div>
+
+        Description: {{ ticket.description }}<br /><div ng-show="edit"><input type="text" ng-model="ticket.description" /></div>
+
+        Assingee: {{ ticket.assignee }}<br /><div ng-show="edit"><input type="text" ng-model="ticket.assignee" /></div>
+
+        Reporter: {{ ticket.reporter }}<br /><div ng-show="edit"><input type="text" ng-model="ticket.reporter" /></div>
+
+        <button ng-click= "$watch(edit = !edit, toggle = !toggle, change(ticket))"><span ng-show="toggle">Edit</span><span ng-hide="toggle">Save</span></button>
         <button ng-click="deleteTicket(ticket)">Complete Ticket</button>
         </div>
         </div>
